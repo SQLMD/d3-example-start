@@ -3,12 +3,5 @@ const showTopics = async filePath => {
 
   const topics = importedTopicFile.topics;
 
-  d3
-    .select("main")
-    .selectAll("div")
-    .data(topics)
-    .enter()
-    .append("div")
-    .text(topic => topic)
-    .attr("class", "topic");
+  d3.select("main");
 };

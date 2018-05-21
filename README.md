@@ -3,6 +3,8 @@
 This was created during my time as a student at Code Chrysalis.
 Three examples of using D3 with facebook data.
 
+This project is intended to be used for a walk through while adding the solution. The completed solution can be found [here](https://github.com/SQLMD/d3-example-complete)
+
 ## Examples
 
 * adTopics.html : simple example showing how to add divs with an array
