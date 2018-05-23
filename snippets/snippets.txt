@@ -15,3 +15,9 @@
       const y = height - scale(date.value) + 10;
       return "translate(" + x + "," + y + ") rotate(90)";
     });
+
+--Centering transform for the pie chart label
+
+    .attr("transform", pieCountValue => {
+         return "translate(" + arc.centroid(pieCountValue) + ")";
+    })
