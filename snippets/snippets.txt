@@ -1,0 +1,17 @@
+--Color alternate for barchart
+
+.attr("fill", (date, index) => {
+      if (index % 2 === 0) {
+        return "blue";
+      }
+      return "darkblue";
+    });
+
+
+--Label 90 degree transform
+
+  .attr("transform", (date, index) => {
+      const x = index * barWidth + (barWidth - 8) / 2;
+      const y = height - scale(date.value) + 10;
+      return "translate(" + x + "," + y + ") rotate(90)";
+    });
