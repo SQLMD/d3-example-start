@@ -1,28 +1,33 @@
 const getTimes = async (filePath, minValue) => {
   //Width and height
-  const w = 1200;
-  const h = 500;
+  const width = 1200;
+  const height = 500;
 
   //For converting Dates to strings
   const formatTime = d3.timeFormat("%m/%d/%y");
 
-  //get data from facebook file for your_posts.json
-  const d = await d3.json(filePath);
+  const importedYourPosts = await d3.json(filePath);
 
-  const array = d.status_updates
-    .sort((act1, act2) => act1.timestamp - act2.timestamp)
-    .map(act => new Date(act.timestamp * 1000))
-    .map(ts => formatTime(ts));
+  const statusUpdateDates = importedYourPosts.status_updates
+    .sort((post1, post2) => post1.timestamp - post2.timestamp)
+    .map(post => new Date(post.timestamp * 1000))
+    .map(postTimeStamp => formatTime(postTimeStamp));
 
-  const dates = countBy(array).filter(act => act.value > minValue);
+  const postDates = countBy(statusUpdateDates).filter(
+    postDate => postDate.value > minValue
+  );
 
-  //Create Scale
+  console.log(postDates);
 
-  //crate svg canvas
+  const barWidth = width / postDates.length;
 
-  // add rectangles first without scale
+  //create scale
 
-  //add date labels
+  //create svg canvas
+
+  //draw rectangles
+
+  //add labels
 };
 
 function countBy(items) {
