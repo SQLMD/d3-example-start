@@ -18,6 +18,7 @@ const getIPs = async (filePath, minValue) => {
     console.log("Count Values", countValues);
     const outerRadius = width / 2;
     const innerRadius = width / 3;
+
     const arc = d3
       .arc()
       .innerRadius(innerRadius)
@@ -44,6 +45,14 @@ const getIPs = async (filePath, minValue) => {
     //Labels
 
     //add labels
+    d3
+      .select("pieL")
+      .selectAll("div")
+      .data(activityIPs)
+      .enter()
+      .append("div")
+      .text(ipAddress => ipAddress.id + ": " + ipAddress.value)
+      .attr("style", "font-size:30px");
   } catch (err) {
     console.log(err);
   }
